@@ -1,0 +1,9 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
+
+nodejs_binary(
+    name = "main",
+    entry_point = "bazel_demo/src",
+    data = ["index.js"],
+)

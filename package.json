@@ -1,0 +1,17 @@
+{
+  "name": "bazel-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anton Ignatov <abietis@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@bazel/ibazel": "^0.4.0"
+  },
+  "dependencies": {
+    "source-map-support": "^0.5.6"
+  }
+}

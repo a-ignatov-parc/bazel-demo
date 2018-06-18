@@ -1,0 +1,15 @@
+package(default_visibility = ["//visibility:public"])
+
+alias(
+    name = "install",
+    actual = "@nodejs//:yarn",
+)
+
+alias(
+    name = "app",
+    actual = "@bazel_demo//src:main",
+)
+
+filegroup(
+    name = "node_modules",
+)
