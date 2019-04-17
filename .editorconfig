@@ -8,16 +8,10 @@ trim_trailing_whitespace = true
 charset = utf-8
 indent_style = space
 indent_size = 4
-max_line_length = 120
+max_line_length = 80
 
-[*.{js,jsx}]
+[*.{js,jsx,ts,tsx}]
 quote_type = single
 
-[{scripts/plato,scripts/deps}]
-quote_type = single
-
-[*.{json,html}]
-quote_type = double
-
-[{package.json,.babelrc,*.yaml}]
+[package.json]
 indent_size = 2

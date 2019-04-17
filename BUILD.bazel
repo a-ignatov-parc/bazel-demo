@@ -1,14 +1,6 @@
 package(default_visibility = ["//visibility:public"])
 
-alias(
-    name = "install",
-    actual = "@nodejs//:yarn",
-)
-
-alias(
-    name = "app",
-    actual = "@bazel_demo//src:main",
-)
+exports_files(["tsconfig.json"])
 
 filegroup(
     name = "node_modules",
@@ -16,3 +8,14 @@ filegroup(
         "node_modules/**/*",
     ]),
 )
+
+alias(
+    name = "install",
+    actual = "@nodejs//:npm",
+)
+
+alias(
+    name = "app",
+    actual = "@bazel_demo//src:main",
+)
+
