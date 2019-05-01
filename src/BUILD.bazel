@@ -1,15 +1,18 @@
-package(default_visibility = ["//visibility:public"])
-
 load("@npm_bazel_typescript//:index.bzl", "ts_library")
 load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
 
 ts_library(
-    name = "build",
+    name = "app",
     srcs = glob(["*.ts"]),
+    tsconfig = "//:tsconfig.json",
+    deps = [
+        "@npm//@types/node",
+    ],
 )
 
 nodejs_binary(
     name = "main",
     entry_point = "bazel_demo/src",
-    data = [":build"],
+    data = [":app"],
+    visibility = ["//visibility:public"],
 )

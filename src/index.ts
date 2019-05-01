@@ -1,3 +1,4 @@
+import os from 'os';
 import hello from './hello';
 
-hello('World');
+hello(os.userInfo().username);
