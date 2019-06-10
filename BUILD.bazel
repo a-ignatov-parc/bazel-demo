@@ -2,6 +2,6 @@ exports_files(["tsconfig.json"])
 
 alias(
     name = "app",
-    actual = "@bazel_demo//src:app",
+    actual = "@bazel_demo//app:cli",
     visibility = ["//visibility:public"],
 )
