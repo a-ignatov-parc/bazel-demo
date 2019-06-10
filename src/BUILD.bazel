@@ -4,6 +4,7 @@ load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
 ts_library(
     name = "ts_app",
     srcs = glob(["*.ts"]),
+    module_name = "bazel-demo/app",
     tsconfig = "//:tsconfig.json",
     deps = [
         "@npm//@types",
