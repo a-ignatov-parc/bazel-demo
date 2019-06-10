@@ -1,0 +1,2 @@
+# Make TypeScript compilation fast
+build --strategy=TypeScriptCompile=worker
