@@ -7,7 +7,7 @@ ts_library(
     module_name = "bazel_demo/app",
     tsconfig = "//:tsconfig.json",
     deps = [
-        "@npm//@types",
+        "@npm//@types/node",
         "@npm//chalk",
     ],
     visibility = ["//visibility:public"],
@@ -15,7 +15,7 @@ ts_library(
 
 nodejs_binary(
     name = "cli",
-    entry_point = "bazel_demo/app",
+    entry_point = ":index.ts",
     data = [":ts_lib"],
     visibility = ["//visibility:public"],
 )

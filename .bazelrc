@@ -1,2 +1,6 @@
+common --experimental_allow_incremental_repository_updates
+
 # Make TypeScript compilation fast
 build --strategy=TypeScriptCompile=worker
+
+test --build_tests_only
