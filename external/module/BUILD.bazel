@@ -1,0 +1,12 @@
+load("@npm_bazel_typescript//:index.bzl", "ts_library")
+
+ts_library(
+    name = "ts_lib",
+    srcs = glob(["*.ts"]),
+    module_name = "bazel_demo_external/module",
+    tsconfig = "//:tsconfig.json",
+    deps = [
+        "@npm//chalk",
+    ],
+    visibility = ["//visibility:public"],
+)

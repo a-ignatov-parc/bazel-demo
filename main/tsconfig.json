@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "jsx": "react",
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "lib": ["esnext", "dom"]
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

@@ -1,7 +1,0 @@
-exports_files(["tsconfig.json"])
-
-alias(
-    name = "app",
-    actual = "//app:cli",
-    visibility = ["//visibility:public"],
-)
