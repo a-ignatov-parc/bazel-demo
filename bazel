@@ -1,0 +1,40 @@
+#!/bin/bash
+
+set -euo pipefail
+
+OS="$(uname -s | tr '[[:upper:]]' '[[:lower:]]')"
+DIRECTORY="$(dirname ${BASH_SOURCE[0]})"
+VERSION=$(cat $DIRECTORY/bazel-version.bzl | awk '{print $3}' | tr -d '"')
+URL="https://github.com/bazelbuild/bazel/releases/download/$VERSION/bazel-$VERSION-$OS-x86_64"
+CACHE_DIR="$HOME/.cache/bazel-binary/$VERSION"
+CACHE_FILE="$CACHE_DIR/bazel"
+IDEA_DIR="$HOME/bin"
+IDEA_FILE="$IDEA_DIR/bazel"
+
+function create_cache {
+    mkdir -p $CACHE_DIR
+    rm -f $CACHE_FILE
+    wget -O $CACHE_FILE $URL
+    chmod +x $CACHE_FILE
+}
+
+function create_link {
+    mkdir -p $IDEA_DIR
+    rm -f $IDEA_FILE
+    ln -s $CACHE_FILE $IDEA_FILE
+}
+
+if [ ! -x $CACHE_FILE ]; then
+    create_cache
+fi
+
+if [ ! -x $IDEA_FILE ]; then
+    create_link
+fi
+
+if [[ "$(readlink -- "$IDEA_FILE")" != "$CACHE_FILE" ]]; then
+    create_link
+fi
+
+export PATH="$DIRECTORY:$PATH"
+$CACHE_FILE "$@"

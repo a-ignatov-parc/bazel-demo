@@ -1,6 +1,15 @@
-common --experimental_allow_incremental_repository_updates
+common --show_task_finish --show_timestamps
 
-# Make TypeScript compilation fast
-build --strategy=TypeScriptCompile=worker
+common --all_incompatible_changes
+common --incompatible_restrict_string_escapes=false
+common --incompatible_no_rule_outputs_param=false
+build  --incompatible_use_platforms_repo_for_constraints=false
+run    --incompatible_use_platforms_repo_for_constraints=false
+test   --incompatible_use_platforms_repo_for_constraints=false
+common --incompatible_disallow_struct_provider_syntax=false
+common --incompatible_disable_target_provider_fields=false
+common --incompatible_no_implicit_file_export=false
 
-test --build_tests_only
+build --strategy=TypeScriptCompile=worker # Make TypeScript compilation fast
+build --worker_sandboxing # Prevent TS worker to read one of these files that don't belong in the compilation
+build --worker_max_instances=TypeScriptCompile=1

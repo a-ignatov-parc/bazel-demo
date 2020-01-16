@@ -2,10 +2,12 @@ load("@npm_bazel_typescript//:index.bzl", "ts_library")
 load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
 
 ts_library(
-    name = "ts_lib",
-    srcs = glob(["*.ts"]),
+    name = "ts_default_library",
+    srcs = [
+        "index.ts",
+        "hello.ts",
+    ],
     module_name = "bazel_demo/app",
-    tsconfig = "//:tsconfig.json",
     deps = [
         "@npm//@types/node",
         "@npm//chalk",
@@ -14,8 +16,8 @@ ts_library(
 )
 
 nodejs_binary(
-    name = "cli",
+    name = "app",
     entry_point = ":index.ts",
-    data = [":ts_lib"],
+    data = [":ts_default_library"],
     visibility = ["//visibility:public"],
 )

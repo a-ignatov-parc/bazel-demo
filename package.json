@@ -9,10 +9,11 @@
   "author": "Anton Ignatov <abietis@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@bazel/typescript": "^0.32.2",
+    "chalk": "^2.4.2"
+  },
+  "devDependencies": {
+    "@bazel/typescript": "^0.41.0",
     "@types/node": "^11.13.8",
-    "chalk": "^2.4.2",
-    "source-map-support": "^0.5.12",
-    "typescript": "^3.5.2"
+    "typescript": "^3.7.4"
   }
 }

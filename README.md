@@ -2,5 +2,5 @@
 
 Run demo app
 ```
-bazel run //:app
+./bazel run //app
 ```
