@@ -9,11 +9,10 @@ load(":deps.bzl", "demo_repo")
 
 demo_repo()
 
-load("@build_bazel_rules_nodejs//:defs.bzl", "yarn_install")
+load("@build_bazel_rules_nodejs//:index.bzl", "yarn_install")
 
 yarn_install(
     name = "npm",
-    frozen_lockfile = True,
     package_json = "//:package.json",
     yarn_lock = "//:yarn.lock",
 )

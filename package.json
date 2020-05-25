@@ -12,7 +12,7 @@
     "chalk": "^2.4.2"
   },
   "devDependencies": {
-    "@bazel/typescript": "^0.41.0",
+    "@bazel/typescript": "1.6.1",
     "@types/node": "^11.13.8",
     "typescript": "^3.7.4"
   }
