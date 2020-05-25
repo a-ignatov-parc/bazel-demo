@@ -11,6 +11,7 @@ ts_library(
     module_name = "bazel_demo/app",
     deps = [
         "@npm//@types/node",
+        "@npm//chalk",
     ],
     visibility = ["//visibility:public"],
 )
