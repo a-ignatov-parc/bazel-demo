@@ -1,6 +1,3 @@
-import chalk from 'chalk';
-
-const hello = (message: string) =>
-    console.log(chalk`Hello {green ${message}}!`);
+const hello = (message: string) => console.log(`Hello ${message}!`);
 
 export default hello;

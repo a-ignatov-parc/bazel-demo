@@ -1,5 +1,6 @@
 load("@npm_bazel_typescript//:index.bzl", "ts_library")
 load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
+load(":rules.bzl", "runner")
 
 ts_library(
     name = "ts_default_library",
@@ -10,7 +11,6 @@ ts_library(
     module_name = "bazel_demo/app",
     deps = [
         "@npm//@types/node",
-        "@npm//chalk",
     ],
     visibility = ["//visibility:public"],
 )
@@ -19,5 +19,12 @@ nodejs_binary(
     name = "app",
     entry_point = ":index.ts",
     data = [":ts_default_library"],
+    visibility = ["//visibility:public"],
+)
+
+runner(
+    name = "runner",
+    app = ":app",
+    say = "friend",
     visibility = ["//visibility:public"],
 )
