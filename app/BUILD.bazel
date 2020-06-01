@@ -6,7 +6,7 @@ ts_library(
     name = "ts_default_library",
     srcs = [
         "index.ts",
-        "hello.ts",
+        "hello-2.ts",
     ],
     module_name = "bazel_demo/app",
     deps = [
